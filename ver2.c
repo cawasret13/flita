@@ -40,6 +40,5 @@ int res(int num,int oldRes){
      fin = fin*10 + arr[j];
      j--;
   }
-   printf("| %d                 ->     %d\n",q,fin);
-   printf("-----------------------------------------\n");
+   printf("\n%d -> %d",q,fin);
 }
