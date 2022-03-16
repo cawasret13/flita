@@ -22,7 +22,7 @@ int main()
     }
   }
   char u;
-  f2 = fopen("res.txt", "w");
+  f2 = fopen("res.gv", "w");
   fprintf(f2, "graph grath {\n");
   for (int a = 0; a < 20; a++)
   {
