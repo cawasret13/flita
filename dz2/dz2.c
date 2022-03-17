@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 int main()
 {
@@ -49,4 +48,6 @@ int main()
   }
   fprintf(f2, "}");
   fclose(f2);
+  system("dot res.gv -Tpng -o g.png");
+  system("g.png");
 }
