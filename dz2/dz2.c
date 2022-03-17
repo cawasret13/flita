@@ -23,6 +23,9 @@ int main()
   char u;
   f2 = fopen("res.gv", "w");
   fprintf(f2, "graph grath {\n");
+  for(int d = 0;d<5;d++){
+    fprintf(f2, "%d\n", d+1);
+  }
   for (int a = 0; a < 20; a++)
   {
     u = -1;
@@ -39,12 +42,12 @@ int main()
         else
         {
           printf(" -- %d", y + 1);
-          fprintf(f2, " -- %d", y + 1);
+          fprintf(f2, " -- %d [label = ""%d""]", y + 1, a+1);
         }
       }
     }
-    fprintf(f2, ";\n");
-    printf(";\n");
+    fprintf(f2, "\n");
+    printf("\n");
   }
   fprintf(f2, "}");
   fclose(f2);
