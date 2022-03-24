@@ -1,5 +1,4 @@
-graph conn {
-conn; 
+graph no_conn {
 1
 2
 3

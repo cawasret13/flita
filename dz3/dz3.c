@@ -25,14 +25,12 @@ int main()
     }
   }
   i++;reb--;
-  char u;
+  char u, flags =0;
   f2 = fopen("res.gv", "w");
   if(reb > ((i - 1) * (i - 2) / 2)){
-    fprintf(f2, "graph conn {\n");
-    fprintf(f2, "conn; \n");
-  }else{
     fprintf(f2, "graph no_conn {\n");
-    fprintf(f2, "no_conn; \n");
+  }else{
+    fprintf(f2, "graph conn {\n");
   }
   for(int d = 0;d<i;d++){
     fprintf(f2, "%d\n", d+1); 
@@ -57,11 +55,19 @@ int main()
         }
       }
     }
+    if(u == -1){
+      flags = 1;
+    }
     fprintf(f2, "\n");
     printf("\n");
   }
   fprintf(f2, "}");
   fclose(f2);
+  if(flags == 1){
+    printf("\n No");
+  }else{
+    printf("yes");
+  }
   system("dot res.gv -Tpng -o g.png");
   system("g.png");
 }
