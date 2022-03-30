@@ -25,13 +25,9 @@ int main()
     }
   }
   i++;reb--;
-  char u, flags =0;
+  char u;
   f2 = fopen("res.gv", "w");
-  if(reb > ((i - 1) * (i - 2) / 2)){
-    fprintf(f2, "graph no_conn {\n");
-  }else{
-    fprintf(f2, "graph conn {\n");
-  }
+  fprintf(f2, "graph Grath {\n");
   for(int d = 0;d<i;d++){
     fprintf(f2, "%d\n", d+1); 
   }
@@ -55,19 +51,32 @@ int main()
         }
       }
     }
-    if(u == -1){
-      flags = 1;
-    }
     fprintf(f2, "\n");
     printf("\n");
   }
+  for (int i = 0; i <= 4; i++)
+  {
+    for (int j = 0; j <= 4; j++)
+    {
+      if (arr[i][j] > 1)
+        arr[i][j] = 1;
+      if (i == j)
+        arr[i][j] = 0;
+    }
+  }
+  for (int i = 0; i <= 4; i++)
+    for (int j = 0; j <= i - 1; j++)
+      reb += arr[i][j];
+  if (reb >= (((5 - 1) * (5 - 2)) / 2))
+  {
+    fprintf(f2, "\t0 [shape = plaintext,label = Связ];\n");
+  }
+  else
+  {
+    fprintf(f2, "\t0 [shape = plaintext,label = Не связ];\n");
+  }
   fprintf(f2, "}");
   fclose(f2);
-  if(flags == 1){
-    printf("\n No");
-  }else{
-    printf("yes");
-  }
   system("dot res.gv -Tpng -o g.png");
   system("g.png");
 }
