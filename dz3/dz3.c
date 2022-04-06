@@ -64,20 +64,20 @@ int main()
         arr[i][j] = 0;
     }
   }
-  for (int i = 0; i <= 4; i++)
-    for (int j = 0; j <= i - 1; j++)
-      reb += arr[i][j];
-  if (reb >= (((5 - 1) * (5 - 2)) / 2))
-  {
-    fprintf(f2, "\t0 [shape = plaintext,label = Связ];\n");
-  }
-  else
-  {
-    fprintf(f2, "\t0 [shape = plaintext,label = Не связ];\n");
-  }
+  if (reb >= ((i - 1) * (i - 2) / 2)) // graph connectivity theorem
+    {
+        printf("graph - connected\n");
+        fprintf(f2, "0 [label = connected]\n");
+    }
+    else
+    {
+        printf("graph -  not connected\n");
+        fprintf(f2, "0 [label = \"not connected\"]\n");
+    }
+    printf("------------------\n");
   fprintf(f2, "}");
   fclose(f2);
   system("dot res.gv -Tpng -o g.png");
   system("g.png");
+  return 0;
 }
-
