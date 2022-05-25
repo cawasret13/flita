@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h> 
+#include <time.h>
 #define MAX 1001
 
 int Show_gr(char arr[MAX][MAX], int reb, int i, int flag){
@@ -26,10 +26,11 @@ int Show_gr(char arr[MAX][MAX], int reb, int i, int flag){
       }
     }
   }
-  if(flag==0){
-     fputs("\tlabel = \"OLD\";\n", f1);
-  }else{
-     fputs("\tlabel = \"NEW\";\n", f1);
+  if (flag == 0){
+    fputs("\tlabel = \"OLD\";\n", f1);
+  }
+  else{
+    fputs("\tlabel = \"NEW\";\n", f1);
   }
   fputc('}', f1);
   fclose(f1);
@@ -37,17 +38,15 @@ int Show_gr(char arr[MAX][MAX], int reb, int i, int flag){
   system("g.png");
 }
 
-
-
 int Delete(char arr[MAX][MAX], int i){
- int del = 0;
- printf("Select edge: ");
- scanf("%d", &del);
- time_t start,end;
- start = time(NULL);
- del--;
- for (int a = 0; a < i; a++){
-      arr[a][del] = '0';
+  int del = 0;
+  printf("Select edge: ");
+  scanf("%d", &del);
+  time_t start, end;
+  start = time(NULL);
+  del--;
+  for (int a = 0; a < i; a++){
+    arr[a][del] = '0';
   }
   end = time(NULL);
   printf("%f\n", difftime(end, start));

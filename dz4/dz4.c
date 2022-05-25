@@ -25,9 +25,10 @@ int main(){
       }
     }
   }
-  i++;reb--;
-  Show_gr(arr, reb,i,0);
+  i++;
+  reb--;
+  Show_gr(arr, reb, i, 0);
   Delete(arr, i);
-  Show_gr(arr, reb,i,1);
+  Show_gr(arr, reb, i, 1);
   return 0;
 }
