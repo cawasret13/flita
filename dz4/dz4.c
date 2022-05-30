@@ -6,7 +6,11 @@
 #define MAX 1001
 
 int main(){
+  time_t start, end;
   FILE *f1;
+  int tm = 0;
+  start = clock();
+  for(int a =0;a<509;a++){
   char arr[MAX][MAX], s;
   int i = 0, j = 0, flag = 0, reb = 0;
   f1 = fopen("matrix_of_incendence13.txt", "r");
@@ -27,8 +31,11 @@ int main(){
   }
   i++;
   reb--;
-  Show_gr(arr, reb, i, 0);
-  Delete(arr, i);
-  Show_gr(arr, reb, i, 1);
+    int num = rand();
+      Delete(arr, i , 452);
+  }
+  printf("time");
+  start = clock() - start;
+  printf("Time %lf",  (double)(start)/(double)(CLOCKS_PER_SEC));
   return 0;
 }

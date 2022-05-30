@@ -38,16 +38,10 @@ int Show_gr(char arr[MAX][MAX], int reb, int i, int flag){
   system("g.png");
 }
 
-int Delete(char arr[MAX][MAX], int i){
-  int del = 0;
-  printf("Select edge: ");
-  scanf("%d", &del);
-  time_t start, end;
-  start = time(NULL);
-  del--;
+int Delete(char arr[MAX][MAX], int i, int num){
+  int del = num-1;
   for (int a = 0; a < i; a++){
     arr[a][del] = '0';
   }
-  end = time(NULL);
-  printf("%f\n", difftime(end, start));
+
 }
